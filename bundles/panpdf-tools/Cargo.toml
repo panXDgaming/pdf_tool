@@ -1,0 +1,42 @@
+[package]
+name = "panpdf-tools"
+description = "Every tool in one program, for a phone: picked by the name it is run as"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+
+[[bin]]
+name = "panpdf-tools"
+path = "src/main.rs"
+
+[dependencies]
+compare-pdf = { path = "../../tools/compare-pdf" }
+compress-pdf = { path = "../../tools/compress-pdf" }
+excel-to-pdf = { path = "../../tools/excel-to-pdf" }
+html-to-pdf = { path = "../../tools/html-to-pdf" }
+image-to-pdf = { path = "../../tools/image-to-pdf" }
+ocr-pdf = { path = "../../tools/ocr-pdf" }
+pdf-to-excel = { path = "../../tools/pdf-to-excel" }
+pdf-to-html = { path = "../../tools/pdf-to-html" }
+pdf-to-image = { path = "../../tools/pdf-to-image" }
+pdf-to-markdown = { path = "../../tools/pdf-to-markdown" }
+pdf-to-pdfa = { path = "../../tools/pdf-to-pdfa" }
+pdf-to-powerpoint = { path = "../../tools/pdf-to-powerpoint" }
+pdf-to-text = { path = "../../tools/pdf-to-text" }
+pdf-to-word = { path = "../../tools/pdf-to-word" }
+powerpoint-to-pdf = { path = "../../tools/powerpoint-to-pdf" }
+protect-pdf = { path = "../../tools/protect-pdf" }
+redact-pdf = { path = "../../tools/redact-pdf" }
+repair-pdf = { path = "../../tools/repair-pdf" }
+scan-to-pdf = { path = "../../tools/scan-to-pdf" }
+sign-pdf = { path = "../../tools/sign-pdf" }
+unlock-pdf = { path = "../../tools/unlock-pdf" }
+word-to-pdf = { path = "../../tools/word-to-pdf" }
+convert-cli.workspace = true
+convert-files.workspace = true
+convert-pdftool.workspace = true
+
+[lints]
+workspace = true

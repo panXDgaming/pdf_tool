@@ -1,0 +1,102 @@
+[workspace]
+resolver = "3"
+members = [
+    "shared/structure",
+    "shared/xml",
+    "shared/zip",
+    "shared/ooxml",
+    "shared/cli",
+    "shared/wasm",
+    "tools/pdf-to-word",
+    "tools/pdf-to-excel",
+    "tools/pdf-to-powerpoint",
+    "tools/pdf-to-html",
+    "tools/pdf-to-markdown",
+    "tools/pdf-to-text",
+    "shared/pdfdoc",
+    "shared/pdftool",
+    "tools/protect-pdf",
+    "tools/unlock-pdf",
+    "tools/repair-pdf",
+    "tools/sign-pdf",
+    "tools/redact-pdf",
+    "tools/compare-pdf",
+    "tools/pdf-to-pdfa",
+    "shared/raster",
+    "shared/files",
+    "tools/pdf-to-image",
+    "tools/image-to-pdf",
+    "tools/scan-to-pdf",
+    "tools/compress-pdf",
+    "tools/ocr-pdf",
+    "shared/office-read",
+    "shared/pdf-canvas",
+    "shared/layout",
+    "tools/html-to-pdf",
+    "tools/word-to-pdf",
+    "shared/drawingml",
+    "tools/excel-to-pdf",
+    "tools/powerpoint-to-pdf",
+    "shared/gif",
+    "shared/svg",
+    "bundles/panpdf-tools",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.97"
+license = "AGPL-3.0-only"
+publish = false
+
+[workspace.dependencies]
+pdf-bytes = { git = "https://github.com/panXDgaming/panpdf.rs", tag = "v0.1.0" }
+pdf-font = { git = "https://github.com/panXDgaming/panpdf.rs", tag = "v0.1.0" }
+pdf-syntax = { git = "https://github.com/panXDgaming/panpdf.rs", tag = "v0.1.0" }
+pdf-content = { git = "https://github.com/panXDgaming/panpdf.rs", tag = "v0.1.0" }
+pdf-paint = { git = "https://github.com/panXDgaming/panpdf.rs", tag = "v0.1.0" }
+pdf-render = { git = "https://github.com/panXDgaming/panpdf.rs", tag = "v0.1.0" }
+pdf-semantics = { git = "https://github.com/panXDgaming/panpdf.rs", tag = "v0.1.0" }
+pdf-edit = { git = "https://github.com/panXDgaming/panpdf.rs", tag = "v0.1.0" }
+pdf-session = { git = "https://github.com/panXDgaming/panpdf.rs", tag = "v0.1.0" }
+pdf-security = { git = "https://github.com/panXDgaming/panpdf.rs", tag = "v0.1.0" }
+convert-structure = { path = "shared/structure" }
+convert-xml = { path = "shared/xml" }
+convert-zip = { path = "shared/zip", default-features = false }
+convert-ooxml = { path = "shared/ooxml" }
+convert-cli = { path = "shared/cli" }
+convert-wasm = { path = "shared/wasm" }
+convert-pdfdoc = { path = "shared/pdfdoc" }
+convert-pdftool = { path = "shared/pdftool" }
+convert-raster = { path = "shared/raster" }
+convert-files = { path = "shared/files" }
+pdf-ocr = { git = "https://github.com/panXDgaming/panpdf.rs", tag = "v0.1.0" }
+convert-office-read = { path = "shared/office-read" }
+convert-pdf-canvas = { path = "shared/pdf-canvas" }
+convert-layout = { path = "shared/layout" }
+convert-drawingml = { path = "shared/drawingml" }
+convert-gif = { path = "shared/gif" }
+convert-svg = { path = "shared/svg" }
+
+[workspace.lints.rust]
+unsafe_code = "deny"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+
+[profile.release]
+debug = false
+codegen-units = 16
+
+[profile.wasm]
+inherits = "release"
+opt-level = "z"
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.wasm-names]
+inherits = "wasm"
+strip = false
+debug = false
